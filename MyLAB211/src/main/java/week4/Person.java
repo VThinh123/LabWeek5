@@ -11,59 +11,64 @@ import java.util.Scanner;
  * @author LENOVO LEGION
  */
 public class Person {
-    private String ID;
-    private String fullName;
-    private String phoneNumber;
-    private int yearOfBirth;
-    private String major;
+    protected int id;
+    protected String fullName;
+    protected String phone;
+    protected int yearOB;
+    protected String major;
 
     public Person() {
-        this.ID = "";
-        this.fullName = "";
-        this.phoneNumber = "";
-        this.yearOfBirth = 0;
+        this.id =0;
+        this.fullName ="";
+        this.phone = "";
+        this.yearOB = 0;
         this.major = "";
     }
+    public void inputAll(Scanner sc){
+       while (true) {
+            System.out.print("ID: ");
+            try {
+                id = Integer.parseInt(sc.nextLine());
+                if (Utils.isValidId(id)) break;
+            } catch (NumberFormatException e) {
+                // Do nothing, prompt will repeat
+            }
+            System.out.println("Data input is invalid");
+        }
 
-    public int getYearOfBirth() {
-        return yearOfBirth;
-    }
+        while (true) {
+            System.out.print("Fullname: ");
+            fullName = sc.nextLine();
+            if (Utils.isValidName(fullName)) break;
+            System.out.println("Data input is invalid");
+        }
 
-    
-    public void inputAll(){
-        Scanner sc = new Scanner(System.in);
-        while(true){
-            System.out.println("Enter ID: ");
-            this.ID = sc.nextLine();
-            if(ID.matches("\\d{6}")) break;
-            System.out.println("invalid numbers");
+        while (true) {
+            System.out.print("Phone number: ");
+            phone = sc.nextLine();
+            if (Utils.isValidPhoneNumber(phone)) break;
+            System.out.println("Data input is invalid");
         }
-        
-        while(true){
-            System.out.println("Enter full name");
-            this.fullName = sc.nextLine();
-            if(fullName.matches("[a-zA-Z ]+")) break;
-            System.out.println("invalid name");
+
+        while (true) {
+            System.out.print("Year of birth: ");
+            yearOB= sc.nextInt();
+            sc.nextLine();
+            if (Utils.isValidYearOfBirth(yearOB)) break;
+            System.out.println("Data input is invalid");
         }
-        
-        while(true){
-            System.out.println("Enter phone number");
-            this.phoneNumber = sc.nextLine();
-            if(phoneNumber.matches("\\d{12}")) break;
-            System.out.println("invalid numbers");
-        }
-        while(true){
-            System.out.println("Enter year of birth: ");
-            this.yearOfBirth = sc.nextInt();
-            if(yearOfBirth < java.time.Year.now().getValue()) break;
-            System.out.println("invalid year");
+
+        while (true) {
+            System.out.print("Major: ");
+            major = sc.nextLine();
+            if (Utils.isValidMajor(major)) break;
+            System.out.println("Data input is invalid");
         }
     }
 
     @Override
     public String toString() {
-        return "Person{" + "ID=" + ID + ", fullName=" + fullName + ", phoneNumber=" + phoneNumber + ", yearOfBirth=" + yearOfBirth + ", major=" + major + '}';
+        return String.format("%d - %s - %s - %d - %s\n", id, fullName, phone, yearOB, major);
     }
-    
     
 }

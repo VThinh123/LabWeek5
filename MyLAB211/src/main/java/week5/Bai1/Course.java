@@ -4,11 +4,14 @@
  */
 package week5;
 
+import java.util.Scanner;
+
 /**
  *
  * @author LENOVO LEGION
  */
 public class Course {
+
     protected String courseID;
     protected String courseName;
     protected int credits;
@@ -17,12 +20,6 @@ public class Course {
         this.courseID = "";
         this.courseName = "";
         this.credits = 0;
-    }
-    
-    public void InputAll(String id, String cn, int cr){
-        courseID = id;
-        courseName = cn;
-        credits = cr;
     }
 
     public String getCourseID() {
@@ -49,9 +46,33 @@ public class Course {
         this.credits = credits;
     }
 
+    public void InputAll() {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.print("Course ID: ");
+            this.courseID = sc.nextLine().trim();
+            if (!this.courseID.isEmpty()) break;
+            System.out.println("Data input is invalid");
+        }
+        
+        while (true) {
+            System.out.print("Course Name: ");
+            this.courseName = sc.nextLine().trim();
+            if (!this.courseName.isEmpty()) break;
+            System.out.println("Data input is invalid");
+        }
+        
+        while (true) {
+            System.out.print("Credits: ");
+            this.credits = Integer.parseInt(sc.nextLine());
+            if (this.credits > 0) break;
+            System.out.println("Data input is invalid");
+        }
+    }
+
     @Override
     public String toString() {
         return "Course{" + "courseID=" + courseID + ", courseName=" + courseName + ", credits=" + credits + '}';
     }
-    
+
 }

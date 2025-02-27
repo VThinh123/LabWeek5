@@ -1,5 +1,6 @@
 week3\MyStack$Node.class
 com\mycompany\mylab211\Week1\Test.class
+week5\bai3\LargeNumber.class
 week3\Utilizer.class
 week4\ManagerStudents.class
 week4\Person.class
@@ -13,6 +14,7 @@ com\mycompany\mylab211\Week1\LinearSearch.class
 com\mycompany\mylab211\Week1\Letter_and_character_count.class
 week3\Test.class
 week5\test.class
+week5\bai3\Number.class
 week4\Students.class
 week2\Triangle.class
 week3\MyStack.class
@@ -23,6 +25,7 @@ week5\OnlineCourse.class
 week4\ManagerStudentsAndTeacher.class
 week5\Course.class
 week5\CourseManagerment.class
+week4\Utils.class
 week2\Shape.class
 week4\ManagerStudents$1.class
 week3\bubbleSortOnClass.class

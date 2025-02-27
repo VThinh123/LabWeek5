@@ -10,37 +10,44 @@ import java.util.Scanner;
  *
  * @author LENOVO LEGION
  */
-public class Student extends Person{
-    private int yearOfAdmission;
-    private double englishScore;
+import java.util.Scanner;
+
+public class Student extends Person {
+
+    private int yearOA;
+    private int entranceEng;
 
     public Student() {
-        super();
-        this.yearOfAdmission = 0;
-        this.englishScore = 0;
+        this.yearOA = 0;
+        this.entranceEng = 0;
     }
- 
-    public void inputAll(){
-        Scanner sc = new Scanner(System.in);
-        super.inputAll();
-        while(true){
-            System.out.println("Enter year of adminssion: ");
-            this.yearOfAdmission = sc.nextInt();
-            if(yearOfAdmission < java.time.Year.now().getValue()) break;
-            System.out.println("invalid year");
+
+    public void inputAll(Scanner sc) {
+        super.inputAll(sc);
+        while (true) {
+            System.out.print("Year of admission: ");
+            yearOA = sc.nextInt();
+            sc.nextLine();
+            if (Utils.isValidYearOfAdmission(yearOA, yearOB)) {
+                break;
+            }
+            System.out.println("Data input is invalid");
         }
-        
-        while(true){
-            System.out.println("Enter English Score: ");
-            this.englishScore = sc.nextDouble();
-            if(englishScore >= 0 && englishScore <= 100) break;
-            System.out.println("Invalid Score..");
+
+        while (true) {
+            System.out.print("Entrance English score: ");
+            entranceEng = sc.nextInt();
+            sc.nextLine();
+            if (Utils.isValidEntranceEnglishScore(entranceEng)) {
+                break;
+            }
+            System.out.println("Data input is invalid");
         }
     }
 
     @Override
     public String toString() {
-        return super.toString() + "Student{" + "yearOfAdmission=" + yearOfAdmission + ", englishScore=" + englishScore + '}';
+        return super.toString() +String.format(" - %d - %d\n", yearOA, entranceEng);
     }
 
 }

@@ -4,6 +4,8 @@
  */
 package week5;
 
+import java.util.Scanner;
+
 /**
  *
  * @author LENOVO LEGION
@@ -44,11 +46,21 @@ public class OnlineCourse extends Course{
         this.note = note;
     }
     
-    public void InputAll( String cd, String cn, int cr, String pf, String is, String nt){
-        super.InputAll(cd, cn, cr);
-        platform = pf;
-        instructors = is;
-        note=nt;
+    public void InputAll(){
+        Scanner sc = new Scanner(System.in);
+        super.InputAll();
+        
+        while (true) {
+            System.out.print("Platform: ");
+            this.platform = sc.nextLine().trim();
+            if (!this.platform.isEmpty()) break;
+            System.out.println("Data input is invalid");
+        }
+        System.out.print("Instructors: ");
+        this.instructors = sc.nextLine().trim();
+
+        System.out.print("Note: ");
+        this.note = sc.nextLine().trim();
     }
 
     @Override
