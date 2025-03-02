@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
  * @author LENOVO LEGION
  */
 public class Utils {
+
     public static boolean isValidId(int id) {
         return String.valueOf(id).length() == 6;
     }
@@ -21,7 +22,7 @@ public class Utils {
     }
 
     public static boolean isValidPhoneNumber(String phoneNumber) {
-        return Pattern.matches("\\d{12}", phoneNumber);
+        return Pattern.matches("\\d{10}", phoneNumber);
     }
 
     public static boolean isValidYearOfBirth(int yearOfBirth) {
@@ -51,5 +52,9 @@ public class Utils {
 
     public static boolean isValidEntranceEnglishScore(int score) {
         return score >= 0 && score <= 100;
+    }
+
+    public static boolean isNumber(String number) {
+        return number != null && number.matches("\\d+");
     }
 }
